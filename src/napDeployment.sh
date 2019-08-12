@@ -1,4 +1,5 @@
-# Positional env commands for deploying NAP to Kube because I'm lazy
+# Named env commands for deploying NAP to Kube because I'm lazy
+# Note: These are being implemented into NAP :-)
 
 NAP_HOME="$HOME/dev/nap"
 function deployNap() {
