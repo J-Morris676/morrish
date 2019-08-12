@@ -1,3 +1,5 @@
+#!/bin/sh
+
 # Shells into docker container
 function dockerbash { docker exec -it -u root "$1" /bin/bash; }
 

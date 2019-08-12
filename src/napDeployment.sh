@@ -1,3 +1,5 @@
+#!/bin/sh
+
 # Named env commands for deploying NAP to Kube because I'm lazy
 # Note: These are being implemented into NAP :-)
 
