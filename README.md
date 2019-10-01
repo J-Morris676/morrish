@@ -1,5 +1,5 @@
 ## Morrish
-Commands that makes things easier for me, mostly wrappers around long tedious commands
+Commands that makes things easier for me, mostly wrappers around long tedious commands.
 
 ## Usage
 1. Clone it
