@@ -1,7 +1,8 @@
 #!/bin/sh
 
-if (locale | grep -e 'utf8' -e 'UTF-8') >/dev/null 2>&1; then logo="📖  "; else logo=""; fi
 ROOT_DIR=$( cd "$(dirname "$0")" ; pwd -P )
+
+source $ROOT_DIR/src/helpers/common.sh
 
 SHORTCUT_DISPLAY="${logo} Available Shortcuts:\n"
 

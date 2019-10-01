@@ -11,7 +11,6 @@ function createS3Bucket {
             LOCALSTACK=true
             ;;
             -h|--help)
-            if (locale | grep -e 'utf8' -e 'UTF-8') >/dev/null 2>&1; then logo="📖  "; else logo=""; fi
             echo "${logo}Create an S3 bucket optionally specifying whether to create one in localstack"
             echo "\t$USAGE\n"
             printf "\t-ls,\t--localstack\t\t[default \"false\"]\n\t\t\t\tWhether to point at localstack url (http://localhost:4568)\n"

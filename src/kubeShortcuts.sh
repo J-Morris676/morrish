@@ -11,7 +11,6 @@ function kubebash {
     do
         case $i in
             -h|--help)
-            if (locale | grep -e 'utf8' -e 'UTF-8') >/dev/null 2>&1; then logo="📖  "; else logo=""; fi
             echo "${logo}Bash into a kube pod"
             echo "\t$USAGE"
             return

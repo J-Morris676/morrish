@@ -13,12 +13,11 @@ function runMongoForNap {
             export MONGO_INITDB_ROOT_PASSWORD=${i#*=}
             ;;
             -h|--help)
-            if (locale | grep -e 'utf8' -e 'UTF-8') >/dev/null 2>&1; then logo="📖  "; else logo=""; fi
             printf "${logo}Runs a Mongo suitable for NAP in a Docker container, requires a username and password that the app will use for auth\n"
             printf "\t${T_BLUE}-mu,\t--mongoUsername${T_RESET}\t\t[default \"mongoUsername in ~/dev/nap/credentials.json\"]\n\t\t\t\tThe username of the initial user\n"
             printf "\t${T_BLUE}-mp,\t--mongoPassword${T_RESET}\t\t[default \"mongoPassword in ~/dev/nap/credentials.json\"]\n\t\t\t\tThe password of the initial user\n"
             printf "\t${T_BLUE}-h,\t--help${T_RESET}\n\t\t\t\tDisplays this help\n"
-            exit 0
+            return
             ;;
         esac
     done

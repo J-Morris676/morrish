@@ -8,7 +8,6 @@ function dockerbash {
     do
         case $i in
             -h|--help)
-            if (locale | grep -e 'utf8' -e 'UTF-8') >/dev/null 2>&1; then logo="📖  "; else logo=""; fi
             echo "${logo}Bash into a Docker container"
             echo "\t$USAGE"
             return
@@ -31,4 +30,23 @@ function runjenkins {
 }
 
 # Remove dangling Docker volumes
-function clearDockerVolumes { docker volume rm "$(docker volume ls -qf dangling=true)" }
+function clearDockerVolumes {
+    for i in "$@" 
+    do
+        case $i in
+            -h|--help)
+            echo "${logo}Clear out your dangling Docker volumes"
+            return
+            ;;
+        esac
+    done
+
+  danglers="$(docker volume ls -qf dangling=true)"
+
+  if [ -z $danglers ]; then
+    echo "You don't have any dangling volumes"
+    return
+  fi
+
+  docker volume rm $danglers
+}
