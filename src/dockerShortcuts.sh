@@ -4,7 +4,7 @@
 function dockerbash {
     USAGE="Usage: dockerbash <container>"
 
-    for i in "$@" 
+    for i in "$@"
     do
         case $i in
             -h|--help)
@@ -20,18 +20,35 @@ function dockerbash {
       return
   fi
 
-  docker exec -it -u root "$1" /bin/bash; 
+  docker exec -it -u root "$1" /bin/bash;
+}
+
+function dockerRunImage {
+  USAGE="Usage: dockerRunImage <image>"
+
+    for i in "$@"
+    do
+        case $i in
+            -h|--help)
+            echo "${logo}Bash into a Docker image"
+            echo "\t$USAGE"
+            return
+            ;;
+        esac
+    done
+
+  docker run -it $1 sh
 }
 
 # Runs Jenkins locally
 function runjenkins {
   # TODO: Check localjenkins image exists, fallback to jenkins/jenkins
-  docker run --name jenkins -d -v /var/run/docker.sock:/var/run/docker.sock -v jenkins_home:/var/jenkins_home -p 8080:8080 -p 50000:50000 localjenkins; 
+  docker run --name jenkins -d -v /var/run/docker.sock:/var/run/docker.sock -v jenkins_home:/var/jenkins_home -p 8080:8080 -p 50000:50000 localjenkins;
 }
 
 # Remove dangling Docker volumes
 function clearDockerVolumes {
-    for i in "$@" 
+    for i in "$@"
     do
         case $i in
             -h|--help)
