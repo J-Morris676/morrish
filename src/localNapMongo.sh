@@ -40,9 +40,10 @@ function runMongoForNap {
         return
     fi
 
-    docker rm localmongofornap > /dev/null 2>&1
+    echo "Starting Mongo container using username $MONGO_INITDB_ROOT_USERNAME and password $MONGO_INITDB_ROOT_PASSWORD"
     docker run \
         --name="localmongofornap" \
+        --rm \
         -d \
         -e "MONGO_INITDB_ROOT_USERNAME=$MONGO_INITDB_ROOT_USERNAME" \
         -e "MONGO_INITDB_ROOT_PASSWORD=$MONGO_INITDB_ROOT_PASSWORD" \
