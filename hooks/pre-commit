@@ -40,9 +40,10 @@ if is_node_project; then
     do
     "$ESLINT" "$FILE" --fix
 
+    git add $FILE
+
     if [[ "$?" == 0 ]]; then
         echo "\t\033[32mESLint Passed: $FILE\033[0m"
-        git add $FILE
     else
         echo "\t\033[41mESLint Failed: $FILE\033[0m"
         PASS=false
