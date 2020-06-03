@@ -38,16 +38,16 @@ if is_node_project; then
 
     for FILE in $STAGED_FILES
     do
-    "$ESLINT" "$FILE" --fix
+        "$ESLINT" "$FILE" --fix
 
-    git add $FILE
+        if [[ "$?" == 0 ]]; then
+            echo "\t\033[32mESLint Passed: $FILE\033[0m"
+        else
+            echo "\t\033[41mESLint Failed: $FILE\033[0m"
+            PASS=false
+        fi
 
-    if [[ "$?" == 0 ]]; then
-        echo "\t\033[32mESLint Passed: $FILE\033[0m"
-    else
-        echo "\t\033[41mESLint Failed: $FILE\033[0m"
-        PASS=false
-    fi
+        git add $FILE
     done
 
     echo "\nLinting completed!\n"
