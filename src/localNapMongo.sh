@@ -31,16 +31,16 @@ function runMongoForNap {
     fi
 
     if [ -z "$MONGO_INITDB_ROOT_USERNAME" ]; then
-        echo "mongoUsername in $CREDENTIALS_FILE doesn't exist or --mongoUsername wasn't provided"
+        printf "mongoUsername in $CREDENTIALS_FILE doesn't exist or --mongoUsername wasn't provided"
         return
     fi
 
     if [ -z "$MONGO_INITDB_ROOT_PASSWORD" ]; then
-        echo "mongoPassword in $CREDENTIALS_FILE doesn't exist or --mongoPassword wasn't provided"
+        printf "mongoPassword in $CREDENTIALS_FILE doesn't exist or --mongoPassword wasn't provided"
         return
     fi
 
-    echo "Starting Mongo container using username $MONGO_INITDB_ROOT_USERNAME and password $MONGO_INITDB_ROOT_PASSWORD"
+    printf "Starting Mongo container using username $MONGO_INITDB_ROOT_USERNAME and password $MONGO_INITDB_ROOT_PASSWORD"
     docker run \
         --name="localmongofornap" \
         --rm \

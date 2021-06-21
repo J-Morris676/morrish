@@ -8,15 +8,15 @@ function dockerbash {
     do
         case $i in
             -h|--help)
-            echo "${logo}Bash into a Docker container"
-            echo "\t$USAGE"
+            printf "${logo}Bash into a Docker container"
+            printf "\t$USAGE"
             return
             ;;
         esac
     done
 
   if [ -z $1 ]; then
-      echo "Invalid args\n\t$USAGE"
+      printf "Invalid args\n\t$USAGE"
       return
   fi
 
@@ -30,8 +30,8 @@ function dockerRunImage {
     do
         case $i in
             -h|--help)
-            echo "${logo}Bash into a Docker image"
-            echo "\t$USAGE"
+            printf "${logo}Bash into a Docker image"
+            printf "\t$USAGE"
             return
             ;;
         esac
@@ -52,7 +52,7 @@ function clearDockerVolumes {
     do
         case $i in
             -h|--help)
-            echo "${logo}Clear out your dangling Docker volumes"
+            printf "${logo}Clear out your dangling Docker volumes"
             return
             ;;
         esac
@@ -61,7 +61,7 @@ function clearDockerVolumes {
   danglers="$(docker volume ls -qf dangling=true)"
 
   if [ -z $danglers ]; then
-    echo "You don't have any dangling volumes"
+    printf "You don't have any dangling volumes"
     return
   fi
 

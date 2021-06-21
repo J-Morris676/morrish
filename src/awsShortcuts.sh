@@ -11,8 +11,8 @@ function createS3Bucket {
             LOCALSTACK=true
             ;;
             -h|--help)
-            echo "${logo}Create an S3 bucket optionally specifying whether to create one in localstack"
-            echo "\t$USAGE\n"
+            printf "${logo}Create an S3 bucket optionally specifying whether to create one in localstack"
+            printf "\t$USAGE\n"
             printf "\t-ls,\t--localstack\t\t[default \"false\"]\n\t\t\t\tWhether to point at localstack url (http://localhost:4566)\n"
             return
             ;;
@@ -20,7 +20,7 @@ function createS3Bucket {
     done
 
     if [ -z $1 ]; then
-        echo "Invalid args\n\t$USAGE"
+        printf "Invalid args\n\t$USAGE"
         return
     fi
 
@@ -42,8 +42,8 @@ function listS3Objects {
             LOCALSTACK=true
             ;;
             -h|--help)
-            echo "${logo}List items in an bucket optionally specifying whether to look at localstack"
-            echo "\t$USAGE\n"
+            printf "${logo}List items in an bucket optionally specifying whether to look at localstack"
+            printf "\t$USAGE\n"
             printf "\t-ls,\t--localstack\t\t[default \"false\"]\n\t\t\t\tWhether to point at localstack url (http://localhost:4566)\n"
             return
             ;;
@@ -51,7 +51,7 @@ function listS3Objects {
     done
 
     if [ -z $1 ]; then
-        echo "Invalid args\n\t$USAGE"
+        printf "Invalid args\n\t$USAGE"
         return
     fi
 
@@ -73,8 +73,8 @@ function listS3Buckets {
             LOCALSTACK=true
             ;;
             -h|--help)
-            echo "${logo}List items in an bucket optionally specifying whether to look at localstack"
-            echo "\t$USAGE\n"
+            printf "${logo}List items in an bucket optionally specifying whether to look at localstack"
+            printf "\t$USAGE\n"
             printf "\t-ls,\t--localstack\t\t[default \"false\"]\n\t\t\t\tWhether to point at localstack url (http://localhost:4566)\n"
             return
             ;;
@@ -82,7 +82,7 @@ function listS3Buckets {
     done
 
     if [ -z $1 ]; then
-        echo "Invalid args\n\t$USAGE"
+        printf "Invalid args\n\t$USAGE"
         return
     fi
 

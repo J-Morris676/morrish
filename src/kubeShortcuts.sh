@@ -11,15 +11,15 @@ function kubebash {
     do
         case $i in
             -h|--help)
-            echo "${logo}Bash into a kube pod"
-            echo "\t$USAGE"
+            printf "${logo}Bash into a kube pod"
+            printf "\t$USAGE"
             return
             ;;
         esac
     done
 
     if [ -z $1 ] || [ -z $2 ]; then
-        echo "Invalid args\n\t$USAGE"
+        printf "Invalid args\n\t$USAGE"
         return
     fi
 

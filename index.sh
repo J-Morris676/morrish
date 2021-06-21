@@ -1,6 +1,6 @@
 #!/bin/sh
 
-ROOT_DIR=$( cd "$(dirname "$0")" ; pwd -P )
+ROOT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
 
 source $ROOT_DIR/src/helpers/common.sh
 
@@ -24,5 +24,5 @@ done
 
 
 function morrish {
-   echo $SHORTCUT_DISPLAY
+   printf "$SHORTCUT_DISPLAY"
 }

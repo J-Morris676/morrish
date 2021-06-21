@@ -15,7 +15,7 @@ if is_node_project; then
     # Check for eslint
     ESLINT="$(git rev-parse --show-toplevel)/node_modules/.bin/eslint"
     if [[ ! -x "$ESLINT" ]]; then
-        echo "\t\033[41mPlease install ESlint\033[0m (npm i --save --save-exact --dev eslint)"
+        printf "\t\033[41mPlease install ESlint\033[0m (npm i --save --save-exact --dev eslint)"
         exit 1
     fi
 
@@ -27,12 +27,12 @@ if is_node_project; then
 
     PASS=true
 
-    echo "\nLinting staged changes:\n"
+    printf "\nLinting staged changes:\n"
 
     ESLINT="$(git rev-parse --show-toplevel)/node_modules/.bin/eslint"
 
     if [[ ! -x "$ESLINT" ]]; then
-        echo "\t\033[41mPlease install ESlint\033[0m (npm i --save --save-exact --dev eslint)"
+        printf "\t\033[41mPlease install ESlint\033[0m (npm i --save --save-exact --dev eslint)"
         exit 1
     fi
 
@@ -41,18 +41,18 @@ if is_node_project; then
         "$ESLINT" "$FILE" --fix
 
         if [[ "$?" == 0 ]]; then
-            echo "\t\033[32mESLint Passed: $FILE\033[0m"
+            printf "\t\033[32mESLint Passed: $FILE\033[0m"
         else
-            echo "\t\033[41mESLint Failed: $FILE\033[0m"
+            printf "\t\033[41mESLint Failed: $FILE\033[0m"
             PASS=false
         fi
 
         git add $FILE
     done
 
-    echo "\nLinting completed!\n"
+    printf "\nLinting completed!\n"
 
     if ! $PASS; then
-    echo "\033[41mWARNING :\033[0m Your commit contains files that should pass ESLint but do not.\n"
+    printf "\033[41mWARNING :\033[0m Your commit contains files that should pass ESLint but do not.\n"
     fi
 fi
