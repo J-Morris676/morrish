@@ -1,6 +1,6 @@
 #!/bin/sh
 
-ROOT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
+ROOT_DIR=$( cd "$(dirname "`realpath $0`")" ; pwd -P )
 
 source $ROOT_DIR/src/helpers/common.sh
 
