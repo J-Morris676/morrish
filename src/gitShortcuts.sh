@@ -7,6 +7,7 @@ function movetag {
     if [ -z "$1" ]
     then
         echo "Error: Please specify a tag name: movetag <tagName>"
+        return 1
     fi
 
     TAG_NAME=$1
