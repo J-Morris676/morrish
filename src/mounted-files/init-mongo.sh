@@ -5,7 +5,8 @@ db.createUser({
     roles: [
         { role: "dbOwner", db: "overlay-engine" },
         { role: "dbOwner", db: "avap_avap" },
-        { role: "dbOwner", db: "overlay-engine-integration-test-local"}
+        { role: "dbOwner", db: "overlay-engine-integration-test-local"},
+        { role: "root", db: "admin" }
     ],
     passwordDigestor:"server"
 });
