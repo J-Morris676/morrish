@@ -4,9 +4,8 @@ Commands that makes things easier for me, mostly wrappers around long tedious co
 ### Script Usage
 
 1. Clone it
-2. Source it using your favourite profile:
-    - `echo -e "\nsource ~/dev/morrish/index.sh" >> ~/.bash_profile && source ~/.bash_profile`
-
+2. Source it by adding it to your .zshrc/.bashrc:
+    - `source ~/dev/morrish/index.sh`
 ### Hook Usage
 
 1. Clone it
