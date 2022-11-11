@@ -32,8 +32,8 @@ function squashAndRebase {
             ;;
             -h|--help)
             printf "${logo}Resets index to provided base-branch, squashing all commits into a single one provided with commit-message\n"
-            printf "\t${T_BLUE}-bb,\t--base-branch${T_RESET}\t\t[default \"master\"]\n\t\t\t\t\tThe base branch to reset index to\n"
-            printf "\t${T_BLUE}-cm,\t--commit-message${T_RESET}\tThe commit message of the newly squashed commit\n"
+            printf "\t${blue}-bb,\t--base-branch${normal}\t\t[default \"master\"]\n\t\t\t\t\tThe base branch to reset index to\n"
+            printf "\t${blue}-cm,\t--commit-message${normal}\tThe commit message of the newly squashed commit\n"
             return
             ;;
         esac
@@ -41,7 +41,7 @@ function squashAndRebase {
 
     if [ -z "$COMMIT_MESSAGE" ]
     then
-        echo "Error: Please specify a commit message: squashAndRebase --commit-message=\"My changes\""
+        echo "${red}Error: Please specify a commit message: squashAndRebase --commit-message=\"My changes\"${normal}"
         return 1
     fi
 
@@ -52,5 +52,3 @@ function squashAndRebase {
     git add -A
     git commit -m $COMMIT_MESSAGE
 }
-
-git config --global alias.tug pull # Because I'm 5

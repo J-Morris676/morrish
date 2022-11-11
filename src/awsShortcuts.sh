@@ -11,9 +11,8 @@ function createS3Bucket {
             LOCALSTACK=true
             ;;
             -h|--help)
-            printf "${logo}Create an S3 bucket optionally specifying whether to create one in localstack"
-            printf "\t$USAGE\n"
-            printf "\t-ls,\t--localstack\t\t[default \"false\"]\n\t\t\t\tWhether to point at localstack url (http://localhost:4566)\n"
+            printf "${logo}Create an S3 bucket optionally specifying whether to create one in localstack, ${USAGE}\n"
+            printf "${blue}\t-ls,\t--localstack\t\t[default \"false\"]\n\t\t\t\t${normal}Whether to point at localstack url (http://localhost:4566)\n"
             return
             ;;
         esac
@@ -42,9 +41,8 @@ function listS3Objects {
             LOCALSTACK=true
             ;;
             -h|--help)
-            printf "${logo}List items in an bucket optionally specifying whether to look at localstack"
-            printf "\t$USAGE\n"
-            printf "\t-ls,\t--localstack\t\t[default \"false\"]\n\t\t\t\tWhether to point at localstack url (http://localhost:4566)\n"
+            printf "${logo}List items in an bucket optionally specifying whether to look at localstack, ${USAGE}\n"
+            printf "${blue}\t-ls,\t--localstack\t\t[default \"false\"]\n\t\t\t\t${normal}Whether to point at localstack url (http://localhost:4566)\n"
             return
             ;;
         esac
@@ -73,18 +71,12 @@ function listS3Buckets {
             LOCALSTACK=true
             ;;
             -h|--help)
-            printf "${logo}List items in an bucket optionally specifying whether to look at localstack"
-            printf "\t$USAGE\n"
-            printf "\t-ls,\t--localstack\t\t[default \"false\"]\n\t\t\t\tWhether to point at localstack url (http://localhost:4566)\n"
+            printf "${logo}List items in an bucket optionally specifying whether to look at localstack, ${USAGE}\n"
+            printf "${blue}\t-ls,\t--localstack\t\t[default \"false\"]\n\t\t\t\t${normal}Whether to point at localstack url (http://localhost:4566)\n"
             return
             ;;
         esac
     done
-
-    if [ -z $1 ]; then
-        printf "Invalid args\n\t$USAGE"
-        return
-    fi
 
     if [ "$LOCALSTACK" = true ]; then
         aws --endpoint-url=http://localhost:4566 s3api list-buckets

@@ -24,5 +24,5 @@ done
 
 
 function morrish {
-   printf "$SHORTCUT_DISPLAY"
+   printf "${blue}$SHORTCUT_DISPLAY${normal}"
 }

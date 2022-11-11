@@ -8,15 +8,14 @@ function dockerbash {
     do
         case $i in
             -h|--help)
-            printf "${logo}Bash into a Docker container"
-            printf "\t$USAGE"
+            printf "${logo}Bash into a running Docker container, $USAGE\n"
             return
             ;;
         esac
     done
 
   if [ -z $1 ]; then
-      printf "Invalid args\n\t$USAGE"
+      printf "${red}Invalid args\n\t$USAGE${normal}\n"
       return
   fi
 
@@ -26,16 +25,20 @@ function dockerbash {
 function dockerRunImage {
   USAGE="Usage: dockerRunImage <image>"
 
-    for i in "$@"
-    do
-        case $i in
-            -h|--help)
-            printf "${logo}Bash into a Docker image"
-            printf "\t$USAGE"
-            return
-            ;;
-        esac
-    done
+  for i in "$@"
+  do
+      case $i in
+          -h|--help)
+          printf "${logo}Runs a docker image, $USAGE\n"
+          return
+          ;;
+      esac
+  done
+
+  if [ -z $1 ]; then
+      printf "${red}Invalid args\n\t$USAGE${normal}\n"
+      return
+  fi
 
   docker run -it $1 sh
 }
