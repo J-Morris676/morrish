@@ -93,7 +93,7 @@ function runMongoForNap {
         -e "MONGO_INITDB_ROOT_USERNAME=$MONGO_INITDB_ROOT_USERNAME" \
         -e "MONGO_INITDB_ROOT_PASSWORD=$MONGO_INITDB_ROOT_PASSWORD" \
         -v $NAP_PATH/ssl/mongodb.pem:/etc/mongodb/mongodb.pem \
-        -v /tmp/init-mongoa.sh:/docker-entrypoint-initdb.d/init-mongo.sh \
+        -v /tmp/init-mongo.sh:/docker-entrypoint-initdb.d/init-mongo.sh \
         -v mongo_data:/data/db \
         -p 27017:27017 \
         mongo:4.0.9 \
